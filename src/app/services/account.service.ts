@@ -15,7 +15,6 @@ export class AccountService {
   constructor(private http: HttpClient) { }
 
   public login(model: any): Observable<void> {
-    console.log(model);
     return this.http.post<User>(this.baseUrl + 'login', model).pipe(
       take(1),
       map((response: User) => {
@@ -53,11 +52,11 @@ export class AccountService {
     );
   }
 
-  // logout(): void {
-  //   localStorage.removeItem('user');
-  //   this.currentUserSource.next(null);
-  //   this.currentUserSource.complete();
-  // }
+  logout(): void {
+    localStorage.removeItem('user');
+    this.currentUserSource.next();
+    this.currentUserSource.complete();
+  }
 
   public setCurrentUser(user: User): void {
     localStorage.setItem('user', JSON.stringify(user));

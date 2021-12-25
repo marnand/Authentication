@@ -16,7 +16,10 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private accountService: AccountService, private router: Router) { }
 
+  get f(): any { return this.form.controls; }
+
   ngOnInit(): void {
+    this.validation();
   }
 
   private validation(): void {
@@ -42,7 +45,7 @@ export class RegisterComponent implements OnInit {
   register(): void {
     this.user = { ...this.form.value };
     this.accountService.register(this.user).subscribe(
-      () => this.router.navigateByUrl('/home'),
+      () => this.router.navigateByUrl('/'),
       (error: any) => console.log(error.error)//this.toaster.error(error.error)
     )
   }

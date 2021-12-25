@@ -9,7 +9,7 @@
 
 	<div class="col-md-6">
 
-    <form #registerForm="ngForm" class="p-1" (ngSubmit)="register()">
+    <form [formGroup]="form" class="p-1" (ngSubmit)="register()">
       <div class="pb-2 d-block d-md-none">
         <h3 class="border-bottom">Cadastro de Usuário</h3>
       </div>
@@ -78,12 +78,7 @@
           </div>
         </div>
       </div>
-      <div class="form-row p-1 mb-3">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="customCheck1">
-          <label class="custom-control-label">Eu concordo com os <a href="#">Termos de Uso</a>.</label>
-        </div>
-      </div>
+
       <div class="form-row">
         <div class="form-group col-12">
           <button [disabled]="!form.valid" class="btn btn-lg btn-success btn-block px-5" type="submit">
