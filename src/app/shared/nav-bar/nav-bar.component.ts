@@ -9,10 +9,12 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class NavBarComponent implements OnInit {
   public isMenuCollapsed = true;
+  public usuario = localStorage.getItem("user");
 
   constructor(public accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
   logout(): void {

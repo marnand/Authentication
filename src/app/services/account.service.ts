@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { map, take } from 'rxjs/operators';
-//import { UserUpdate } from '../models/identity/UserUpdate';
 import { User } from '../models/identity/User';
 
 @Injectable()
@@ -53,7 +52,7 @@ export class AccountService {
   }
 
   logout(): void {
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
     this.currentUserSource.next();
     this.currentUserSource.complete();
   }

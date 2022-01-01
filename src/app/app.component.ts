@@ -28,6 +28,7 @@ export class AppComponent {
       headertext: 'Toast Header'
     });
   }
+
   showError() {
     this.toastService.show('I am a success toast', {
       classname: 'bg-danger text-light',
